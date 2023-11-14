@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\cars_Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +44,9 @@ Route::get('/multiplicacion/{n1}/{n2}', function ($n1, $n2) {
 Route::get('/division/{n1}/{n2}', function ($n1, $n2) {
     return 'La división de estos valores es: ' . $n1 / $n2;
 })->where(['n1' => '[0-9]+', 'n2' => '[0-9]+']);
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+Route::get('/autos', [cars_Controller::class, 'getCar']);
+
+Route::get('/autos/{id}', [cars_Controller::class, 'getCarId']);
